@@ -1,0 +1,282 @@
+/* src/App.css */
+:root {
+  --color-work: #d95550;
+  --color-short-break: #4c9195;
+  --color-long-break: #457ca3;
+  --color-text: #ffffff;
+  --color-secondary-text: #f5f5f5;
+  --color-background: #1e1e1e;
+  --color-card: #30384b;
+  --color-button: rgba(255, 255, 255, 0.2);
+  --color-button-hover: rgba(255, 255, 255, 0.3);
+  --transition-time: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  transition: background-color var(--transition-time) ease;
+}
+
+.app.work {
+  background-color: var(--color-work);
+}
+
+.app.shortBreak {
+  background-color: var(--color-short-break);
+}
+
+.app.longBreak {
+  background-color: var(--color-long-break);
+}
+
+header {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+main {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--color-card);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.session-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.session-info h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-secondary-text);
+}
+
+.timer-display {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.time {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  font-family: 'Roboto Mono', monospace;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.control-button {
+  background-color: var(--color-button);
+  color: var(--color-text);
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-time) ease;
+}
+
+.control-button:hover {
+  background-color: var(--color-button-hover);
+}
+
+.control-button.start {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.control-button.start:hover {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.control-button.pause {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
+.control-button.pause:hover {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.session-counter {
+  text-align: center;
+}
+
+.session-count {
+  margin-bottom: 0.5rem;
+  color: var(--color-secondary-text);
+}
+
+.session-cycle {
+  opacity: 0.8;
+}
+
+.session-markers {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.marker {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color var(--transition-time) ease;
+}
+
+.marker.completed {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.settings-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+  opacity: 0.8;
+  transition: opacity var(--transition-time) ease;
+}
+
+.settings-button:hover {
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.settings-modal {
+  background-color: var(--color-card);
+  border-radius: 10px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.settings-modal h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-secondary-text);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.75rem 0;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-time) ease;
+}
+
+.save-button {
+  background-color: rgba(76, 175, 80, 0.8);
+  color: white;
+  border: none;
+}
+
+.save-button:hover {
+  background-color: rgba(76, 175, 80, 1);
+}
+
+.cancel-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+}
+
+.cancel-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .time {
+    font-size: 4rem;
+  }
+  
+  .control-button {
+    padding: 0.5rem 1rem;
+  }
+  
+  main {
+    padding: 1.5rem;
+  }
+}
